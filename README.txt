@@ -41,9 +41,9 @@
 
 
 ===//**command line argument format/commands**\\====
-##########################################################################################
-IMPORTANT: Strictly follow the below format for the commands or the result will		  not to be as expected! I have tried to include a fair amount of exce           ption handling, so the program will rarely completely crash...but th           e behavior might be unexpected
-	   All xml files must be present in the source/root folder of this prog           ram before loading it/inventory 
+###############################################################################
+IMPORTANT: 
+Strictly follow the below format for the commands or the result will not to be as expected! I have tried to include a fair amount of exce ption handling, so the program will rarely completely crash...but the behavior might be unexpected.All xml files must be present in the source/root folder of this program before loading it/inventory 
 ###############################################################################
 
 ***User commands***
@@ -51,7 +51,7 @@ All data is saved in "customer.txt" file
 When a user is added the program will check if a customer.txt file exists. If so, it will just create a new file and add the user. If exists, it will look through the data and check if a customer with the same email already exists. If not, it will add the new user. Else, it will ask the admin to use the "user change" command instead
 
 -> Use Case: Add User
-   $ user add --first_name --last_name --email [ --cc_number --expiration_date --security_code --phone ]
+   $ user add --first_name --last_name --email [ --cc_number --expiration_date  --security_code --phone ]
 
 -------------------------------------------------------------------------------
 -> Use Case: Change User
@@ -87,12 +87,12 @@ All inventory is sorted by date before writing to text file. In case of multiple
 ***Search commands***
 
 -> Use Case: Search in a date range without any argument given for number of beds
-   (All the beds in the range will be displayed, sorted by price in ascending o   rder)
+   (All the beds in the range will be displayed, sorted by price in ascending order)
 	
    $ h21 search --city "cityname" --start_date --end_date  //Use the double quotes for city!
 -------------------------------------------------------------------------------
 -> Use Case: Search in a date range with an argument given for number of beds
-   (When this commnand is used, the program will find all the possible beds in    the range given with the condition that atleast/minimum the give --beds argu   ment amount should be found. It then saves all the data in a Result object.    The program then sorts the beds by price and pairs in groups of --beds. Any    excess that do not form a complete group will be discarded from the search r   esult. Now, I know this is not the most practical solution, but it was the b   est I could in the time I had since the professor said that we were only sup   posed to display the combination with the lowest total price)
+   (When this commnand is used, the program will find all the possible beds in the range given with the condition that atleast/minimum the give --beds argument amount should be found. It then saves all the data in a Result object. The program then sorts the beds by price and pairs in groups of --beds. Any excess that do not form a complete group will be discarded from the search result. Now, I know this is not the most practical solution, but it was the best I could in the time I had since the professor said that we were only supposed to display the combination with the lowest total price)
 	
    $ h21 search --city "cityname" --start_date --end_date --beds //Use the double quotes for city!
 
@@ -100,17 +100,17 @@ All inventory is sorted by date before writing to text file. In case of multiple
 ===============================================================================
 ***Booking commands***
 -> Use Case: Add/Create a new booking
-   (All data will be saved in 'booking.txt'. The program verifies if the user e	  xists and if so processes the booking. If not, it will not process and displ   ay an error stating no user exists with the specified id. I forgot to add co   de to display the details of the booking: id, customer name, total, etc, and   I apologize for that! I hope its not too big of a problem. Honestly it can b   e easily done, but since I am short on time, I have to move on. For now, jus   t refer to the 'booking.txt' file for details. Using the 'book view' command   below will give a nicely formatted details of a booking )
+   (All data will be saved in 'booking.txt'. The program verifies if the user  exists and if so processes the booking. If not, it will not process and displayan error stating no user exists with the specified id. I forgot to add code to display the details of the booking: id, customer name, total, etc, and I apologize for that! I hope its not too big of a problem. Honestly it can be easily done, but since I am short on time, I have to move on. For now, just refer to the'booking.txt' file for details. Using the 'book view' command below will give a nicely formatted details of a booking )
 	
 	$ h21 book add --search_id --user_id
 
----------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -> Use Case: View booking
    $ h21 book view --booking_id 
 
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -> Use Case: Cancel booking
-   (When the cancel command is executed, the program will ask you for todays da	   te. Thisis to test the late cancellation policy. Based on the policy hours     of the location if the cancellation is considered late, the program will pr    int out a simple statement "Late fee was charged!", and then proceed on to     cancellation, ie, marking the data in booking.txt with a '*' meaning its ca    ncelled. The data is not deleted as this will allow the program to count th    e number of cancellations in a date range along with the revenue)
+   (When the cancel command is executed, the program will ask you for todays date. Thisis to test the late cancellation policy. Based on the policy hours of the location if the cancellation is considered late, the program will print out a simple statement "Late fee was charged!", and then proceed on to cancellation, ie, marking the data in booking.txt with a '*' meaning its cancelled. The data is not deleted as this will allow the program to count the number of cancellations in a date range along with the revenue)
 	
    $ h21 book cancel --booking_id
 
