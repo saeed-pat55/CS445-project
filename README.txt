@@ -23,7 +23,7 @@
 ====================================================		   
 
 > make test_bed  		=> Bed.java, TestBed.java 
-> make test_customer	=> Customer.java, TestCustomer.java
+> make test_customer		=> Customer.java, TestCustomer.java
 > make test_hostel		=> Hostel.java,	TestHostel.java
 > make test_booking		=> Booking.java, TestBooking.java
 > make test_result		=> Result.java, TestResult.java
